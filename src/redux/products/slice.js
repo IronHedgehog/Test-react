@@ -17,8 +17,9 @@ const productSlice = createSlice({
       state.isLoading = false;
     },
     [addToCart.fulfilled](state, { payload }) {
+      console.log('payload', payload);
       state.isLoading = true;
-      state.cart = [...state, payload];
+      state.cart.push(payload);
       state.isLoading = false;
     },
   },

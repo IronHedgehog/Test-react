@@ -17,8 +17,9 @@ export const addToCart = createAsyncThunk(
   'product/addToCart',
   async (product, { rejectWithValue }) => {
     try {
-      const products = await axios.post('withOwner', product);
-      return products;
+      const { favorite, ...neededProduct } = product;
+      console.log('product', neededProduct);
+      return neededProduct;
     } catch (error) {
       return rejectWithValue(error.message);
     }

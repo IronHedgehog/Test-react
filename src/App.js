@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PrivateRoute from './components/CustomRoutes/private';
 import PublicRoute from './components/CustomRoutes/public';
 import ShopPage from './views/shop';
+import CartPage from './views/cart';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,9 @@ const App = () => {
 
             <PrivateRoute path="/shop">
               <ShopPage />
+            </PrivateRoute>
+            <PrivateRoute path="/cart">
+              <CartPage />
             </PrivateRoute>
           </Switch>
         </>

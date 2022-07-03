@@ -28,10 +28,16 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const authPersistConfigProduct = {
+  key: 'product',
+  storage,
+  whitelist: ['cart'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authSlice),
-    products: productSlice,
+    products: persistReducer(authPersistConfigProduct, productSlice),
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

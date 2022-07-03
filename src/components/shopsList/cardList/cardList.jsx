@@ -17,10 +17,14 @@ const CardList = ({ filteredProducts }) => {
             }) => (
               <OneCard
                 key={id}
+                id={id}
                 name={name}
                 price={price}
                 productInfo={productInfo}
                 image={image}
+                shop={shop}
+                categories={categories}
+                favorite={favorite}
               />
             ),
           )
