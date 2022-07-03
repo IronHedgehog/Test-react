@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://testbackk.herokuapp.com/api';
+axios.defaults.baseURL = 'https://testbackk.herokuapp.com/api/';
 
 const token = {
   set(token) {
@@ -17,7 +17,7 @@ export const registration = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       console.log('user', user);
-      const { data } = await axios.post('/users/signup', user);
+      const { data } = await axios.post('users/signup', user);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -30,7 +30,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (user, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/login', user);
+      const { data } = await axios.post('users/login', user);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -43,7 +43,7 @@ export const logOut = createAsyncThunk(
   'auth/logOut',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/logout');
+      const { data } = await axios.get('users/logout');
       token.unset(data.token);
     } catch (error) {
       rejectWithValue(error.message);
@@ -61,7 +61,7 @@ export const refreshedUser = createAsyncThunk(
 
     token.set(localStorageToken);
     try {
-      const { data } = await axios.get('/users/current');
+      const { data } = await axios.get('users/current');
       return data;
     } catch (error) {
       rejectWithValue(error.message);

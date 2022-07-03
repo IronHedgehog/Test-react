@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './App.css';
-import PhoneBookPage from './views/phonebook';
+
 import LoginPage from './views/login';
 import RegistrationPage from './views/registration';
 import { Switch } from 'react-router-dom';
@@ -11,9 +11,9 @@ import {
   getIsLoggedIn,
 } from './redux/auth/auth-selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import PrivateRoute from './utils/CustomRoutes/private';
-import PublicRoute from './utils/CustomRoutes/public';
-import { Skeleton } from '@mui/material';
+import PrivateRoute from './components/CustomRoutes/private';
+import PublicRoute from './components/CustomRoutes/public';
+import ShopPage from './views/shop';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,12 +28,12 @@ const App = () => {
   return (
     <>
       {loadingCurrentUser ? (
-        <Skeleton variant="rectangular" width={210} height={118} />
+        <h1> Загрузка</h1>
       ) : (
         <>
           {loggedIn && <Header />}
           <Switch>
-            <PublicRoute path="/" redirectTo="/contacts" exact restricted>
+            <PublicRoute path="/" redirectTo="/shop" exact restricted>
               <LoginPage />
             </PublicRoute>
 
@@ -41,8 +41,8 @@ const App = () => {
               <RegistrationPage />
             </PublicRoute>
 
-            <PrivateRoute path="/contacts">
-              <PhoneBookPage />
+            <PrivateRoute path="/shop">
+              <ShopPage />
             </PrivateRoute>
           </Switch>
         </>
