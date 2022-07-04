@@ -35,11 +35,11 @@ const App = () => {
         <>
           {loggedIn && <Header />}
           <Switch>
-            <PublicRoute path="/" redirectTo="/shop" exact restricted>
+            <PublicRoute path="/" exact restricted>
               <LoginPage />
             </PublicRoute>
 
-            <PublicRoute path="/registration" restricted>
+            <PublicRoute path="/registration" redirectTo="/shop" restricted>
               <RegistrationPage />
             </PublicRoute>
 

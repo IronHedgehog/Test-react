@@ -9,6 +9,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -26,8 +27,6 @@ export default function RegistrationPage() {
       name: data.get('name'),
       email: data.get('email'),
       password: data.get('password'),
-      phone: data.get('phone'),
-      address: data.get('address'),
     };
     dispatch(registration(user));
   };
@@ -89,28 +88,7 @@ export default function RegistrationPage() {
                   autoComplete="password"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="phone"
-                  label="phone"
-                  type="phone"
-                  id="phone"
-                  autoComplete="phone"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="address"
-                  label="address"
-                  type="address"
-                  id="address"
-                  autoComplete="address"
-                />
-              </Grid>
+
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
