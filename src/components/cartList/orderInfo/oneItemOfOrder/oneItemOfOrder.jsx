@@ -1,11 +1,19 @@
-const OneItemOfOrder = (id, name, price, image) => {
+import { useDispatch } from 'react-redux';
+import { deleteFromCart } from '../../../../redux/products/action';
+
+import s from './oneItemOfOrder.module.scss';
+
+const OneItemOfOrder = product => {
+  const dispatch = useDispatch();
   const backPath = 'https://testbackk.herokuapp.com/';
-  console.log('image', image);
   return (
-    <li>
-      <img src={backPath + image} alt="product" />
-      <p>{name}</p>
-      <p>{price}</p>
+    <li className={s.item}>
+      <img src={backPath + product.image} alt="product" />
+      <p>{product.name}</p>
+      <p>{product.price}</p>
+      <button onClick={() => dispatch(deleteFromCart(product.id))}>
+        delete
+      </button>
     </li>
   );
 };

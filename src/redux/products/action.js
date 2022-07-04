@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { getCart } from './selector';
+import { useSelector } from 'react-redux';
 
 export const fetchProducts = createAsyncThunk(
   'products/all',
@@ -15,11 +17,22 @@ export const fetchProducts = createAsyncThunk(
 
 export const addToCart = createAsyncThunk(
   'product/addToCart',
-  async (product, { rejectWithValue }) => {
+  (product, { rejectWithValue }) => {
     try {
       const { favorite, ...neededProduct } = product;
       console.log('product', neededProduct);
       return neededProduct;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+export const deleteFromCart = createAsyncThunk(
+  'product/deleteFromCart',
+  async (id, { rejectWithValue }) => {
+    try {
+      return id;
     } catch (error) {
       return rejectWithValue(error.message);
     }

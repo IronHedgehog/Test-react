@@ -4,6 +4,8 @@ import { getProducts, getIsLoading } from '../../redux/products/selector';
 import { fetchProducts } from '../../redux/products/action';
 import CardList from './cardList/cardList';
 
+import s from './shopsList.module.scss';
+
 const ShopsList = () => {
   const [filter, setFilter] = useState([]);
   const [buttonName, setButtonName] = useState('');
@@ -30,10 +32,11 @@ const ShopsList = () => {
     <h1>загрузка</h1>
   ) : (
     <div>
-      <nav>
+      <nav className={s.nav}>
         {shops.map(shop => (
           <button
             key={shop}
+            className={s.button}
             name={shop}
             onClick={onClickHendler}
             disabled={buttonName !== shop && togleDisabled}

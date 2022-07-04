@@ -3,12 +3,15 @@ import { logOut } from '../../redux/auth/auth-operation';
 import { getUserName } from '../../redux/auth/auth-selectors';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { NavLink } from 'react-router-dom';
+import { getCart, getTotal } from '../../redux/products/selector';
+
+import s from './user-menu.module.scss';
 
 const styles = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-  },
+  // container: {
+  //   display: 'flex',
+  //   alignItems: 'center',
+  // },
   avatar: {
     marginRight: 4,
   },
@@ -21,6 +24,8 @@ const styles = {
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(getUserName);
+  const total = useSelector(getTotal);
+  const products = useSelector(getCart);
 
   return (
     <div style={styles.container}>
@@ -28,9 +33,13 @@ export default function UserMenu() {
       <button type="button" onClick={() => dispatch(logOut())}>
         Выйти
       </button>
-      <NavLink to={'/cart'}>
-        <ShoppingBagOutlinedIcon />
-      </NavLink>
+      <div className={s.div}>
+        <NavLink to={'/cart'} className={s.link}>
+          <ShoppingBagOutlinedIcon className={s.cart} />
+          <span className={s.quantity}>{products.length}</span>
+        </NavLink>
+        <span className={s.price}>{total} ГРН</span>
+      </div>
     </div>
   );
 }

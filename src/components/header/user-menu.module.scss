@@ -1,0 +1,21 @@
+.link {
+  text-decoration: none;
+  margin-left: 100;
+}
+.cart {
+  position: relative;
+  margin-left: 100;
+}
+.quantity {
+  position: absolute;
+}
+.price {
+  margin-left: 20px;
+}
+.div {
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

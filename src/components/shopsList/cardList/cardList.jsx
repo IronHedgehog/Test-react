@@ -1,8 +1,11 @@
 import OneCard from './oneCard/oneCard';
+import { v4 as uuidv4 } from 'uuid';
+
+import s from './cardList.module.scss';
 
 const CardList = ({ filteredProducts }) => {
   return (
-    <ul>
+    <ul className={s.list}>
       {filteredProducts.length
         ? filteredProducts.map(
             ({
@@ -17,7 +20,7 @@ const CardList = ({ filteredProducts }) => {
             }) => (
               <OneCard
                 key={id}
-                id={id}
+                id={uuidv4()}
                 name={name}
                 price={price}
                 productInfo={productInfo}
