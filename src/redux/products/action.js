@@ -38,3 +38,15 @@ export const deleteFromCart = createAsyncThunk(
     }
   },
 );
+
+export const sendOrder = createAsyncThunk(
+  'product/deleteFromCart',
+  async (value, { rejectWithValue }) => {
+    try {
+      const sendedInfo = await axios.post('orders/addOrder', value);
+      return sendedInfo;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);

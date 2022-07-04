@@ -11,7 +11,10 @@ const OneItemOfOrder = product => {
       <img src={backPath + product.image} alt="product" />
       <p>{product.name}</p>
       <p>{product.price}</p>
-      <button onClick={() => dispatch(deleteFromCart(product.id))}>
+      <button
+        type="button"
+        onClick={() => dispatch(deleteFromCart(product.id))}
+      >
         delete
       </button>
     </li>

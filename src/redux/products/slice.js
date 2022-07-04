@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-import { fetchProducts, addToCart, deleteFromCart } from './action';
-import { getCart } from './selector';
+
+import { fetchProducts, addToCart, deleteFromCart, sendOrder } from './action';
 
 const initialState = {
   products: [],
   isLoading: false,
   cart: [],
   total: 0,
+  order: [],
 };
 
 const productSlice = createSlice({
@@ -27,6 +27,7 @@ const productSlice = createSlice({
     },
     [deleteFromCart.fulfilled](state, { payload }) {
       state.isLoading = true;
+      console.log('payload', payload);
       const deletedObj = state.cart.find(el => el.id === payload);
       const deletedPrice = deletedObj.price;
       state.total = state.total - deletedPrice;
@@ -34,6 +35,14 @@ const productSlice = createSlice({
 
       state.isLoading = false;
     },
+    // [sendOrder.fulfilled](state, { payload }) {
+    //   state.isLoading = true;
+    //   // state.cart = [];
+    //   state.order.push(payload.data);
+    //   state.total = 0;
+
+    //   state.isLoading = false;
+    // },
   },
 });
 
