@@ -34,9 +34,7 @@ const productSlice = createSlice({
 
       state.isLoading = false;
     },
-    [sendOrder.fulfilled](state, { payload }) {
-      state.isLoading = true;
-      state.order.push(payload.data);
+    [sendOrder.fulfilled](state, action) {
       state.cart = [];
       state.total = 0;
       state.isLoading = false;

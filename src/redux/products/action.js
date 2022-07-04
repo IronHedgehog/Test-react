@@ -41,8 +41,8 @@ export const sendOrder = createAsyncThunk(
   'Order/SendOrder',
   async (value, { rejectWithValue }) => {
     try {
-      const sendedInfo = await axios.post('orders/addOrder', value);
-      return sendedInfo;
+      console.log('value', value);
+      await axios.post('orders/addOrder', value);
     } catch (error) {
       return rejectWithValue(error.message);
     }
