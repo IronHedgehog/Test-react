@@ -15,10 +15,12 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const theme = createTheme();
 
 export default function RegistrationPage() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
@@ -27,8 +29,11 @@ export default function RegistrationPage() {
       name: data.get('name'),
       email: data.get('email'),
       password: data.get('password'),
+      phone: data.get('phone'),
+      address: data.get('address'),
     };
     dispatch(registration(user));
+    history.push('/');
   };
 
   return (
@@ -88,7 +93,30 @@ export default function RegistrationPage() {
                   autoComplete="password"
                 />
               </Grid>
-
+              <Grid item xs={12}>
+                <TextField
+                  error
+                  required
+                  fullWidth
+                  name="phone"
+                  label="phone"
+                  type="phone"
+                  id="phone"
+                  autoComplete="phone"
+                  helperText="must be number"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="address"
+                  label="address"
+                  type="address"
+                  id="address"
+                  autoComplete="address"
+                />
+              </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={

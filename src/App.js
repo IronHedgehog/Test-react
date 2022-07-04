@@ -39,7 +39,7 @@ const App = () => {
               <LoginPage />
             </PublicRoute>
 
-            <PublicRoute path="/registration" redirectTo="/shop" restricted>
+            <PublicRoute path="/registration" redirectTo="/" restricted>
               <RegistrationPage />
             </PublicRoute>
 
