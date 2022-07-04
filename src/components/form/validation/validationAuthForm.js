@@ -6,7 +6,7 @@ export const validationSchema = Yup.object().shape({
     .min(2, 'Please enter more than 2 character')
     .max(100, 'Max 100')
     .matches(
-      /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,100})$/i,
+      /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,100})$/i,
       'Please enter correct email',
     )
     .required('this field is required'),

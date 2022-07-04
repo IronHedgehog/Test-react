@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getCart, getTotal } from '../../../redux/products/selector';
+import { getCart } from '../../../redux/products/selector';
 import OneItemOfOrder from './oneItemOfOrder/oneItemOfOrder';
 import { v4 as uuidv4 } from 'uuid';
 

@@ -18,7 +18,7 @@ export const addToCart = createAsyncThunk(
   (product, { rejectWithValue }) => {
     try {
       const { favorite, ...neededProduct } = product;
-      console.log('product', neededProduct);
+
       return neededProduct;
     } catch (error) {
       return rejectWithValue(error.message);

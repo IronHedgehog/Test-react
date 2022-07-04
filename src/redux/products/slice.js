@@ -27,7 +27,6 @@ const productSlice = createSlice({
     },
     [deleteFromCart.fulfilled](state, { payload }) {
       state.isLoading = true;
-      console.log('payload', payload);
       const deletedObj = state.cart.find(el => el.id === payload);
       const deletedPrice = deletedObj.price;
       state.total = state.total - deletedPrice;
