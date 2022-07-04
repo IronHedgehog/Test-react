@@ -35,7 +35,7 @@ const App = () => {
         <>
           {loggedIn && <Header />}
           <Switch>
-            <PublicRoute path="/" exact restricted>
+            <PublicRoute path="/" redirectTo="/shop" exact restricted>
               <LoginPage />
             </PublicRoute>
 
