@@ -4,7 +4,7 @@ import { validationSchema } from './validation/validationAuthForm';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
+import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import { getCart, getTotal } from '../../redux/products/selector';
 import { sendOrder } from '../../redux/products/action';
@@ -13,6 +13,7 @@ export const Formm = () => {
   const totalPrice = useSelector(getTotal);
   const cart = useSelector(getCart);
   const dispatch = useDispatch();
+  const history = useHistory();
   return (
     <Formik
       initialValues={{
@@ -24,8 +25,10 @@ export const Formm = () => {
       }}
       validationSchema={validationSchema}
       validateOnBlur
-      onSubmit={values => {
+      onSubmit={(values, { resetForm }) => {
         dispatch(sendOrder(values));
+        history.push('/OrderOk');
+        resetForm();
       }}
     >
       {({
@@ -93,6 +96,7 @@ export const Formm = () => {
 
             <div className={s.loginFormBtnContainer}>
               <p>Total price = {totalPrice}</p>
+
               <Button
                 className={classNames(s.btnForm, s.current)}
                 type="submit"

@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getCart } from './selector';
-import { useSelector } from 'react-redux';
 
 export const fetchProducts = createAsyncThunk(
   'products/all',
@@ -40,7 +38,7 @@ export const deleteFromCart = createAsyncThunk(
 );
 
 export const sendOrder = createAsyncThunk(
-  'product/deleteFromCart',
+  'Order/SendOrder',
   async (value, { rejectWithValue }) => {
     try {
       const sendedInfo = await axios.post('orders/addOrder', value);

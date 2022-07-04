@@ -35,14 +35,13 @@ const productSlice = createSlice({
 
       state.isLoading = false;
     },
-    // [sendOrder.fulfilled](state, { payload }) {
-    //   state.isLoading = true;
-    //   // state.cart = [];
-    //   state.order.push(payload.data);
-    //   state.total = 0;
-
-    //   state.isLoading = false;
-    // },
+    [sendOrder.fulfilled](state, { payload }) {
+      state.isLoading = true;
+      state.order.push(payload.data);
+      state.cart = [];
+      state.total = 0;
+      state.isLoading = false;
+    },
   },
 });
 

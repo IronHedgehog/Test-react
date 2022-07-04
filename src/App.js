@@ -15,6 +15,7 @@ import PrivateRoute from './components/CustomRoutes/private';
 import PublicRoute from './components/CustomRoutes/public';
 import ShopPage from './views/shop';
 import CartPage from './views/cart';
+import OrderOk from './views/OrderOk';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ const App = () => {
             </PrivateRoute>
             <PrivateRoute path="/cart">
               <CartPage />
+            </PrivateRoute>
+            <PrivateRoute path="/OrderOk">
+              <OrderOk />
             </PrivateRoute>
           </Switch>
         </>
