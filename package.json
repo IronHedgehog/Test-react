@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "test-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,9 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
