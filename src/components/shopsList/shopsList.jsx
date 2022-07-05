@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts, getIsLoading } from '../../redux/products/selector';
+import {
+  getProducts,
+  getIsLoading,
+  getCart,
+} from '../../redux/products/selector';
 import { fetchProducts } from '../../redux/products/action';
 import CardList from './cardList/cardList';
 
@@ -9,10 +13,12 @@ import s from './shopsList.module.scss';
 const ShopsList = () => {
   const [filter, setFilter] = useState([]);
   const [buttonName, setButtonName] = useState('');
-  const [togleDisabled, setDisabled] = useState(false);
   const dispatch = useDispatch();
   const products = useSelector(getProducts);
+  const cart = useSelector(getCart);
   const loading = useSelector(getIsLoading);
+
+  const boll = cart.some(el => el.shop === buttonName);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -24,7 +30,6 @@ const ShopsList = () => {
     e.preventDefault();
     const { name } = e.target;
     setButtonName(name);
-    setDisabled(!togleDisabled);
     setFilter(products.filter(({ shop }) => shop === name));
   };
 
@@ -39,7 +44,7 @@ const ShopsList = () => {
             className={s.button}
             name={shop}
             onClick={onClickHendler}
-            disabled={buttonName !== shop && togleDisabled}
+            disabled={boll && buttonName !== shop}
           >
             {shop}
           </button>
