@@ -36,7 +36,7 @@ const ShopsList = () => {
   return loading ? (
     <h1>загрузка</h1>
   ) : (
-    <div>
+    <div className={s.div}>
       <nav className={s.nav}>
         {shops.map(shop => (
           <button
