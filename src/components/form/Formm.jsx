@@ -97,13 +97,13 @@ export const Formm = () => {
             />
 
             <div className={s.loginFormBtnContainer}>
-              <p>Total price = {totalPrice}</p>
+              <p>Загальна ціна = {totalPrice}</p>
 
               <Button
                 className={classNames(s.btnForm, s.current)}
                 type="submit"
               >
-                Send
+                Відправити замовлення
               </Button>
             </div>
           </>
