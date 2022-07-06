@@ -29,16 +29,16 @@ export default function UserMenu() {
 
   return (
     <div style={styles.container}>
-      <span style={styles.name}>Ласкаво просимо, {name}</span>
+      <span style={styles.name}>Welcome, {name}</span>
       <button type="button" onClick={() => dispatch(logOut())}>
-        Вихід
+        Logout
       </button>
       <div className={s.div}>
         <NavLink to={'/cart'} className={s.link}>
           <ShoppingBagOutlinedIcon className={s.cart} />
           <span className={s.quantity}>{products.length}</span>
         </NavLink>
-        <span className={s.price}>{total} ГРН</span>
+        <span className={s.price}>{total} UAH</span>
       </div>
     </div>
   );

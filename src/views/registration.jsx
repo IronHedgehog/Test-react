@@ -132,7 +132,7 @@ export default function RegistrationPage() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Реєстрація
+              Sign up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

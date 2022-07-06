@@ -97,13 +97,14 @@ export const Formm = () => {
             />
 
             <div className={s.loginFormBtnContainer}>
-              <p>Загальна ціна = {totalPrice}</p>
+              <p>totalPrice = {totalPrice} UAH</p>
 
               <Button
                 className={classNames(s.btnForm, s.current)}
                 type="submit"
+                disabled={cart.length === 0}
               >
-                Відправити замовлення
+                Send order
               </Button>
             </div>
           </>

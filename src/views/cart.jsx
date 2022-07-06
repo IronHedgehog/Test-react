@@ -10,7 +10,7 @@ const CartPage = () => {
     <Container>
       <NavLink to="/shop" className={s.link}>
         <ArrowBackIcon />
-        <span>Вернуться к покупкам</span>
+        <span>back to shop</span>
       </NavLink>
       <CartList />
     </Container>
