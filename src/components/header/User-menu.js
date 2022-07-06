@@ -31,7 +31,7 @@ export default function UserMenu() {
     <div style={styles.container}>
       <span style={styles.name}>Ласкаво просимо, {name}</span>
       <button type="button" onClick={() => dispatch(logOut())}>
-        Выйти
+        Вихід
       </button>
       <div className={s.div}>
         <NavLink to={'/cart'} className={s.link}>
