@@ -11,8 +11,8 @@ export const validationSchema = Yup.object().shape({
     )
     .required('this field is required'),
   phone: Yup.string()
-    .min(6, 'Please enter more than 5 character')
-    .max(12, 'Please enter not more than 12 character')
+    .min(10, 'має бути 10 символів')
+    .max(10, 'має бути 10 символів')
     .matches(
       /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
       'please enter correct phone',

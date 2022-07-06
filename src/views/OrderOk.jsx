@@ -3,10 +3,10 @@ import s from './OrderOk.module.scss';
 const OrderOk = () => {
   return (
     <>
-      <h2>Order in work</h2>
-      <p>our manager will contact you</p>
+      <h2>Ваше замовлення в роботі</h2>
+      <p>наші менеджери зв'яжуться з вами</p>
       <NavLink to={'/shop'} className={s.link}>
-        buy something else
+        Купити щось ще
       </NavLink>
     </>
   );

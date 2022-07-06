@@ -8,8 +8,10 @@ import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import { getCart, getTotal } from '../../redux/products/selector';
 import { sendOrder } from '../../redux/products/action';
+import { getUser } from '../../redux/auth/auth-selectors';
 
 export const Formm = () => {
+  const user = useSelector(getUser);
   const totalPrice = useSelector(getTotal);
   const cart = useSelector(getCart);
   const dispatch = useDispatch();
@@ -17,10 +19,10 @@ export const Formm = () => {
   return (
     <Formik
       initialValues={{
-        username: '',
-        email: '',
-        phone: '',
-        address: '',
+        username: user.name,
+        email: user.email,
+        phone: user.phone,
+        address: user.address,
         cart,
       }}
       validationSchema={validationSchema}
