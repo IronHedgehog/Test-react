@@ -14,6 +14,6 @@ export const validationSchema = Yup.object().shape({
   address: Yup.string().required('this field is required'),
   username: Yup.string()
     .min(2, 'Please enter more than 1 character')
-    .max(30, 'Please enter not more than 12 character')
+    .max(30, 'Please enter not more than 30 character')
     .required('this field is required'),
 });
