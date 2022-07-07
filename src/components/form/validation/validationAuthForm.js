@@ -10,21 +10,10 @@ export const validationSchema = Yup.object().shape({
       'Please enter correct email',
     )
     .required('this field is required'),
-  phone: Yup.string()
-    .min(10, 'має бути 10 символів')
-    .max(10, 'має бути 10 символів')
-    .matches(
-      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-      'please enter correct phone',
-    )
-    .required('this field is required'),
+  phone: Yup.number().required('this field is required'),
   address: Yup.string().required('this field is required'),
   username: Yup.string()
     .min(2, 'Please enter more than 1 character')
-    .max(12, 'Please enter not more than 12 character')
-    .matches(
-      /^(?!.*\.\.)(?!\.)(?!.*\.$)(?!\d+$)[a-zA-Z0-9.]{2,12}$/,
-      'Name is invalid',
-    )
+    .max(30, 'Please enter not more than 12 character')
     .required('this field is required'),
 });
